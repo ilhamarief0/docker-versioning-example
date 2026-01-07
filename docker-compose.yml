@@ -1,0 +1,18 @@
+services:
+  app:
+    image: ghcr.io/ilhamarief0/core-meanhills-laravel:latest
+    container_name: core-meanhills-apps
+    restart: always
+    ports:
+      - "6994:8000"
+    environment:
+      - APP_ENV=production
+      - APP_DEBUG=false
+    volumes:
+      - ./.env:/app/.env
+    networks:
+      - meanhills_network
+
+networks:
+  meanhills_network:
+    external: true  
